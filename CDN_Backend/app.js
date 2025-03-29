@@ -72,6 +72,16 @@ app.get("/best-cdn", (req, res) => {
     timestamp: successful[0].timestamp
   });
 });
+app.get("/metrics", (req, res) => {
+  try {
+    const raw = fs.readFileSync(resultsFile, "utf-8");
+    const data = JSON.parse(raw);
+    res.json(data);
+  } catch (err) {
+    console.error("Error reading results:", err);
+    res.status(500).json({ error: "Failed to load metrics." });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
