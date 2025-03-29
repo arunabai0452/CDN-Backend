@@ -83,7 +83,7 @@ app.get("/metrics", (req, res) => {
   try {
     const raw = fs.readFileSync(resultsFile, "utf-8");
     const data = JSON.parse(raw);
-
+    console.log(data);
     const mapped = data.map(entry => {
       const hostname = new URL(entry.cdn).hostname;
       let name = "Unknown";
