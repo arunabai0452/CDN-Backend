@@ -68,15 +68,11 @@ app.get("/best-cdn", (req, res) => {
     return res.status(500).json({ error: "No healthy CDN found." });
   }
 
-  successful.sort((a, b) => a.latency - b.latency);
-  const best = successful[0];
-
-  res.json({
-    bestCDN: best.cdn,
-    latency: best.latency,
-    timestamp: best.timestamp
-  });
+  // Sort by latency
+  const sorted = successful.sort((a, b) => a.latency - b.latency);
+  res.json({ cdns: sorted.map(r => r.cdn) });
 });
+
 
 // === /metrics API ===
 app.get("/metrics", (req, res) => {
