@@ -1,0 +1,8 @@
+{
+  "cdns": [
+    "https://dynamiccdnswitch.aruniyyappan0452.workers.dev/",
+    "https://zesty-haupia-5ee606.netlify.app/public/",
+    "https://dynamic-cdn-switch.vercel.app"
+  ],
+  "testFile": "/index.html"
+}
