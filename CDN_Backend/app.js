@@ -88,7 +88,7 @@ app.get("/metrics", (req, res) => {
       const hostname = new URL(entry.cdn).hostname;
       let name = "Unknown";
 
-      if (hostname.includes("cloudflare")) name = "Cloudflare";
+      if (hostname.includes("dynamiccdnswitch")) name = "Cloudflare";
       else if (hostname.includes("vercel")) name = "Vercel";
       else if (hostname.includes("netlify")) name = "Netlify";
       else if (hostname.includes("github")) name = "GitHub Pages";
